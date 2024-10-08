@@ -1,19 +1,19 @@
-import { Input } from "./Input";
-export function EducationInfo({ onChange, values }) {
+import { Input } from "../Input";
+export function ExperienceInfo({ onChange, values }) {
   return (
     <div className="container">
-      <h1>Education</h1>
+      <h1>Professional Experience</h1>
       <Input
-        label="School"
-        name="school"
+        label="Company Name"
+        name="name"
         onChange={onChange}
-        value={values.school}
+        value={values.name}
       />
       <Input
-        label="Degree"
-        name="degree"
+        label="Position Title"
+        name="title"
         onChange={onChange}
-        value={values.degree}
+        value={values.title}
       />
       <Input
         label="Start Date"
@@ -32,6 +32,12 @@ export function EducationInfo({ onChange, values }) {
         name="location"
         onChange={onChange}
         value={values.location}
+      />
+      <Input
+        label="Description"
+        name="description"
+        onChange={onChange}
+        value={values.description}
       />
     </div>
   );

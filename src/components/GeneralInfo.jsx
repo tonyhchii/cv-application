@@ -1,4 +1,4 @@
-import { Input } from "./Input";
+import { Input } from "../Input";
 
 export function GeneralInfo({ onChange, values }) {
   return (

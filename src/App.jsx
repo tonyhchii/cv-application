@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { GeneralInfo } from "./GeneralInfo";
-import { CVDisplay } from "./CVDisplay";
-import { EducationInfo } from "./EducationInfo";
-import { ExperienceInfo } from "./ExperienceInfo";
+import { GeneralInfo } from "./components/GeneralInfo";
+import { CVDisplay } from "./components/CVComponents/CVDisplay";
+import { EducationInfo } from "./components/EducationInfo";
+import { ExperienceInfo } from "./components/ExperienceInfo";
+import { EducationSection } from "./components/EducationSection";
 
 const initialInfo = {
   fullName: "Tony Huang",
@@ -38,7 +39,7 @@ const initialInfo = {
       description: "Software Engineer at Meta",
     },
     {
-      id: 0,
+      id: 1,
       name: "Google",
       title: "Software Engineer",
       startDate: "10/2020",
@@ -52,6 +53,7 @@ const initialInfo = {
 
 export function App() {
   const [info, setInfo] = useState(initialInfo);
+  const [sectionOpen, setSectionOpen] = useState(null);
 
   const handleGIChange = (e) => {
     const { name, value } = e.target;
@@ -63,30 +65,33 @@ export function App() {
   };
 
   const handleEIChange = (e) => {
+    const index = e.target.id;
     const { name, value } = e.target;
-    const updatedSchool = { ...info.schools[0], [name]: value };
+    const updatedSchool = { ...info.schools[index], [name]: value };
+    const newSchools = [
+      ...info.schools.slice(0, index),
+      updatedSchool,
+      ...info.schools.slice(index + 1),
+    ];
     setInfo({
       ...info,
-      schools: [updatedSchool],
+      schools: newSchools,
     });
   };
 
-  const handleExpIChange = (e) => {
-    const { name, value } = e.target;
-    const updatedJob = { ...info.jobs[0], [name]: value };
-    setInfo({
-      ...info,
-      jobs: [updatedJob],
-    });
-  };
+  const setOpen = (sectionName) => setSectionOpen(sectionName);
 
   return (
     <div>
       <CVDisplay info={info} />
 
       <GeneralInfo onChange={handleGIChange} values={info} />
-      <EducationInfo onChange={handleEIChange} values={info.schools[0]} />
-      <ExperienceInfo onChange={handleExpIChange} values={info.jobs[0]} />
+      <EducationSection
+        isOpen={sectionOpen === "Education"}
+        setOpen={setOpen}
+        onChange={handleEIChange}
+        info={info.schools[0]}
+      />
     </div>
   );
 }
