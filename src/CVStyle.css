@@ -12,7 +12,8 @@
   gap: 1rem;
 }
 
-.school {
+.school,
+.job {
   display: flex;
   gap: 2rem;
 }

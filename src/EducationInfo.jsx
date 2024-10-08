@@ -17,21 +17,21 @@ export function EducationInfo({ onChange, values }) {
       />
       <Input
         label="Start Date"
-        name="schoolStartDate"
+        name="startDate"
         onChange={onChange}
-        value={values.schoolStartDate}
+        value={values.startDate}
       />
       <Input
         label="End Date"
-        name="schoolEndDate"
+        name="endDate"
         onChange={onChange}
-        value={values.schoolEndDate}
+        value={values.endDate}
       />
       <Input
         label="Location"
-        name="schoolLocation"
+        name="location"
         onChange={onChange}
-        value={values.schoolLocation}
+        value={values.location}
       />
     </div>
   );
