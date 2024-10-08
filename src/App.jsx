@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { GeneralInfo } from "./GeneralInfo";
+import { CVDisplay } from "./CVDisplay";
+import { EducationInfo } from "./EducationInfo";
+import { ExperienceInfo } from "./ExperienceInfo";
 
-function App() {
-  const [count, setCount] = useState(0)
+const initialInfo = {
+  fullName: "Tony Huang",
+  email: "tonari@email.com",
+  phone: "111-111-1111",
+  address: "NY,NY",
+  school: "Harvard University",
+  degree: "Bachelor in Computer Science",
+  schoolStartDate: "10/2010",
+  schoolEndDate: "6/2014",
+  schoolLocation: "Boston, Massachusetts",
+};
+
+export function App() {
+  const [info, setInfo] = useState(initialInfo);
+
+  const handleGIChange = (e) => {
+    const { name, value } = e.target;
+
+    setInfo({
+      ...info,
+      [name]: value,
+    });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <CVDisplay info={info} />
 
-export default App
+      <GeneralInfo onChange={handleGIChange} values={info} />
+      <EducationInfo onChange={handleGIChange} values={info} />
+      <ExperienceInfo />
+    </div>
+  );
+}

@@ -1,0 +1,18 @@
+.header {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+.infoRow {
+  display: flex;
+  justify-items: space-around;
+  gap: 1rem;
+}
+
+.school {
+  display: flex;
+  gap: 2rem;
+}
