@@ -1,13 +1,24 @@
 import { DropDown } from "./DropDown";
-import { EducationInfo } from "./EducationInfo";
+import { FormDisplay } from "./FormDisplay";
 import "./section.css";
 
-export function EducationSection({ isOpen, setOpen, onChange, info }) {
+export function EducationSection({
+  isOpen,
+  setOpen,
+  onChange,
+  info,
+  toggleCollapsed,
+}) {
   return (
     <div>
       <DropDown sectionName="Education" isOpen={isOpen} setOpen={setOpen} />
       <div className={`section-content ${isOpen ? "open" : ""}`}>
-        <EducationInfo onChange={onChange} values={info} />
+        <FormDisplay
+          info={info}
+          onChange={onChange}
+          arrayName="schools"
+          toggleCollapsed={toggleCollapsed}
+        />
       </div>
     </div>
   );

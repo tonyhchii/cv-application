@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { GeneralInfo } from "./components/GeneralInfo";
 import { CVDisplay } from "./components/CVComponents/CVDisplay";
-import { EducationInfo } from "./components/EducationInfo";
-import { ExperienceInfo } from "./components/ExperienceInfo";
 import { EducationSection } from "./components/EducationSection";
+
+import "./App.css";
 
 const initialInfo = {
   fullName: "Tony Huang",
@@ -12,34 +12,37 @@ const initialInfo = {
   address: "NY,NY",
   schools: [
     {
-      id: 0,
+      id: "0",
       school: "Harvard University",
       degree: "Bachelor in Computer Science",
       startDate: "10/2010",
       endDate: "6/2014",
       location: "Boston, Massachusetts",
+      isCollapsed: true,
     },
     {
-      id: 1,
+      id: "1",
       school: "MIT",
       degree: "Masters in Computer Science",
       startDate: "10/2018",
       endDate: "6/2020",
       location: "Boston, Massachusetts",
+      isCollapsed: true,
     },
   ],
   jobs: [
     {
-      id: 0,
+      id: "5",
       name: "Meta",
       title: "Software Engineer",
       startDate: "10/2016",
       endDate: "05/2020",
       location: "New York City, New York",
       description: "Software Engineer at Meta",
+      isCollapsed: true,
     },
     {
-      id: 1,
+      id: "10",
       name: "Google",
       title: "Software Engineer",
       startDate: "10/2020",
@@ -47,6 +50,7 @@ const initialInfo = {
       location: "New York City, New York",
       description:
         "Lorem Ipsum neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+      isCollapsed: true,
     },
   ],
 };
@@ -65,33 +69,61 @@ export function App() {
   };
 
   const handleEIChange = (e) => {
-    const index = e.target.id;
+    const sectionForm = e.target.closest(".section-form");
+    const { id } = sectionForm;
+    const { arrayName } = sectionForm.dataset;
+    const section = info[arrayName];
     const { name, value } = e.target;
-    const updatedSchool = { ...info.schools[index], [name]: value };
-    const newSchools = [
-      ...info.schools.slice(0, index),
-      updatedSchool,
-      ...info.schools.slice(index + 1),
-    ];
     setInfo({
       ...info,
-      schools: newSchools,
+      [arrayName]: section.map((obj) => {
+        if (obj.id === id) {
+          obj = {
+            ...obj,
+            [name]: value,
+          };
+        }
+        return obj;
+      }),
     });
   };
 
+  function toggleValue(e, key) {
+    const sectionForm = e.target.closest(".section-form");
+    const { id } = sectionForm;
+    const { arrayName } = sectionForm.dataset;
+    const section = info[arrayName];
+    setInfo({
+      ...info,
+      [arrayName]: section.map((form) => {
+        if (form.id === id) {
+          form[key] = !form[key];
+        }
+        console.log(form.id, id);
+
+        return form;
+      }),
+    });
+  }
+
   const setOpen = (sectionName) => setSectionOpen(sectionName);
+  const toggleCollapsed = (e) => toggleValue(e, "isCollapsed");
 
   return (
-    <div>
-      <CVDisplay info={info} />
-
-      <GeneralInfo onChange={handleGIChange} values={info} />
-      <EducationSection
-        isOpen={sectionOpen === "Education"}
-        setOpen={setOpen}
-        onChange={handleEIChange}
-        info={info.schools[0]}
-      />
+    <div className="app">
+      <div className="sidebar">
+        <GeneralInfo onChange={handleGIChange} values={info} />
+        <EducationSection
+          isOpen={sectionOpen === "Education"}
+          setOpen={setOpen}
+          info={info.schools}
+          toggleCollapsed={toggleCollapsed}
+          onChange={handleEIChange}
+        />
+      </div>
+      <div className="display">
+        <CVDisplay info={info} />
+      </div>
     </div>
   );
 }

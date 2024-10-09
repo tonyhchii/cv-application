@@ -1,10 +1,12 @@
+import "./DropDown.css";
+
 export function DropDown({ isOpen, sectionName, setOpen }) {
   return (
     <button
-      className="expand-section"
+      className="dropdown"
       onClick={() => setOpen(isOpen ? "" : sectionName)}
     >
-      <h2 className="expand-section-header">{sectionName}</h2>
+      <h2 className="dropdown-header">{sectionName}</h2>
     </button>
   );
 }

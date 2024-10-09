@@ -1,8 +1,12 @@
 import { Input } from "../Input";
 export function EducationInfo({ onChange, values }) {
   return (
-    <div className="container">
-      <h1>Education</h1>
+    <div
+      className="container section-form"
+      id={values.id}
+      data-array-name="schools"
+      data-set-id={values.id}
+    >
       <Input
         label="School"
         name="school"
