@@ -4,6 +4,7 @@ import { CVDisplay } from "./components/CVComponents/CVDisplay";
 import { EducationSection } from "./components/EducationSection";
 
 import "./App.css";
+import { JobsSection } from "./components/JobsSection";
 
 const initialInfo = {
   fullName: "Tony Huang",
@@ -13,7 +14,7 @@ const initialInfo = {
   schools: [
     {
       id: "0",
-      school: "Harvard University",
+      name: "Harvard University",
       degree: "Bachelor in Computer Science",
       startDate: "10/2010",
       endDate: "6/2014",
@@ -22,7 +23,7 @@ const initialInfo = {
     },
     {
       id: "1",
-      school: "MIT",
+      name: "MIT",
       degree: "Masters in Computer Science",
       startDate: "10/2018",
       endDate: "6/2020",
@@ -68,7 +69,7 @@ export function App() {
     });
   };
 
-  const handleEIChange = (e) => {
+  const handleChange = (e) => {
     const sectionForm = e.target.closest(".section-form");
     const { id } = sectionForm;
     const { arrayName } = sectionForm.dataset;
@@ -118,7 +119,14 @@ export function App() {
           setOpen={setOpen}
           info={info.schools}
           toggleCollapsed={toggleCollapsed}
-          onChange={handleEIChange}
+          onChange={handleChange}
+        />
+        <JobsSection
+          isOpen={sectionOpen === "Professional Experience"}
+          setOpen={setOpen}
+          info={info.jobs}
+          toggleCollapsed={toggleCollapsed}
+          onChange={handleChange}
         />
       </div>
       <div className="display">

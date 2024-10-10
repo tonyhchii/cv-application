@@ -9,9 +9,9 @@ export function EducationInfo({ onChange, values }) {
     >
       <Input
         label="School"
-        name="school"
+        name="name"
         onChange={onChange}
-        value={values.school}
+        value={values.name}
       />
       <Input
         label="Degree"

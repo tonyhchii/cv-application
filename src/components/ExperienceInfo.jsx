@@ -2,7 +2,6 @@ import { Input } from "../Input";
 export function ExperienceInfo({ onChange, values }) {
   return (
     <div className="container">
-      <h1>Professional Experience</h1>
       <Input
         label="Company Name"
         name="name"

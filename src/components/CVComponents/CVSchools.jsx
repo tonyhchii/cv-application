@@ -20,7 +20,7 @@ function School({ info }) {
         <p>{info.location}</p>
       </div>
       <div>
-        <b>{info.school}</b>
+        <b>{info.name}</b>
         <p>{info.degree}</p>
       </div>
     </div>
