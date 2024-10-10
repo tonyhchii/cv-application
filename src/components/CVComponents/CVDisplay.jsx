@@ -1,7 +1,7 @@
 import { CVHeader } from "./CVHeader";
 import { CVSchools } from "./CVSchools";
 import { CVJobs } from "./CVJobs";
-import "./CVStyle.css";
+import "../../styles/CVStyle.css";
 export function CVDisplay({ info }) {
   return (
     <div className="cv-container">

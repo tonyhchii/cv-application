@@ -1,7 +1,7 @@
 import { DropDown } from "./DropDown";
 import { EducationInfo } from "./EducationInfo";
 import { FormDisplay } from "./FormDisplay";
-import "./section.css";
+import "../styles/section.css";
 
 export function EducationSection({
   isOpen,

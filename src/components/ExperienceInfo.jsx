@@ -1,7 +1,11 @@
 import { Input } from "../Input";
-export function ExperienceInfo({ onChange, values }) {
+export function ExperienceInfo({ onChange, values, toggleCollapsed }) {
   return (
-    <div className="container">
+    <div
+      className="container section-form"
+      id={values.id}
+      data-array-name="jobs"
+    >
       <Input
         label="Company Name"
         name="name"
@@ -38,6 +42,11 @@ export function ExperienceInfo({ onChange, values }) {
         onChange={onChange}
         value={values.description}
       />
+      <div className="btn-container">
+        <button className="btn" onClick={toggleCollapsed}>
+          Close
+        </button>
+      </div>
     </div>
   );
 }

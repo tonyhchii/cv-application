@@ -3,7 +3,7 @@ import { GeneralInfo } from "./components/GeneralInfo";
 import { CVDisplay } from "./components/CVComponents/CVDisplay";
 import { EducationSection } from "./components/EducationSection";
 
-import "./App.css";
+import "./styles/App.css";
 import { JobsSection } from "./components/JobsSection";
 
 const initialInfo = {

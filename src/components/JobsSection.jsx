@@ -1,7 +1,7 @@
 import { DropDown } from "./DropDown";
 import { ExperienceInfo } from "./ExperienceInfo";
 import { FormDisplay } from "./FormDisplay";
-import "./section.css";
+import "../styles/section.css";
 export function JobsSection({
   isOpen,
   setOpen,

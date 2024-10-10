@@ -1,4 +1,4 @@
-import "./FormDisplay.css";
+import "../styles/FormDisplay.css";
 export function FormDisplay({
   info,
   arrayName,
@@ -20,7 +20,12 @@ export function FormDisplay({
             <p className="collapsed-form-title">{obj.name}</p>
           </button>
         ) : (
-          <InfoComponent key={obj.id} values={obj} onChange={onChange} />
+          <InfoComponent
+            key={obj.id}
+            values={obj}
+            onChange={onChange}
+            toggleCollapsed={toggleCollapsed}
+          />
         );
       })}
     </div>

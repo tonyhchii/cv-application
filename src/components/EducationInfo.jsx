@@ -1,5 +1,5 @@
 import { Input } from "../Input";
-export function EducationInfo({ onChange, values }) {
+export function EducationInfo({ onChange, values, toggleCollapsed }) {
   return (
     <div
       className="container section-form"
@@ -37,6 +37,9 @@ export function EducationInfo({ onChange, values }) {
         onChange={onChange}
         value={values.location}
       />
+      <button className="btn" onClick={toggleCollapsed}>
+        Close
+      </button>
     </div>
   );
 }

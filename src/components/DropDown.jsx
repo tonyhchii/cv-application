@@ -1,4 +1,4 @@
-import "./DropDown.css";
+import "../styles/DropDown.css";
 
 export function DropDown({ isOpen, sectionName, setOpen }) {
   return (
