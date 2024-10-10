@@ -3,7 +3,7 @@ export function CVSchools({ info }) {
     <School key={school.id} info={school} />
   ));
   return (
-    <div>
+    <div className="cv-section">
       <h2>Education</h2>
       {schools}
     </div>
@@ -13,13 +13,13 @@ export function CVSchools({ info }) {
 function School({ info }) {
   return (
     <div className="school">
-      <div>
+      <div className="school-col-1">
         <p>
           {info.startDate} - {info.endDate}
         </p>
         <p>{info.location}</p>
       </div>
-      <div>
+      <div className="school-col-2">
         <b>{info.name}</b>
         <p>{info.degree}</p>
       </div>

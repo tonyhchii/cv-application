@@ -1,7 +1,7 @@
 export function CVJobs({ info }) {
   const jobs = info.map((job) => <Job key={job.id} info={job} />);
   return (
-    <div>
+    <div className="cv-section">
       <h2>Professional Experience</h2>
       {jobs}
     </div>

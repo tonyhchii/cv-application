@@ -4,6 +4,11 @@
   text-align: center;
   padding: 1rem 2rem;
   gap: 1rem;
+  background-color: darkcyan;
+}
+
+.cv-container {
+  background-color: white;
 }
 
 .infoRow {
@@ -14,6 +19,19 @@
 
 .school,
 .job {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 2.5rem;
+}
+
+.cv-section {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+div,
+p {
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
