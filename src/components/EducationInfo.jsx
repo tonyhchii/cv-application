@@ -1,5 +1,10 @@
 import { Input } from "./Input";
-export function EducationInfo({ onChange, values, toggleCollapsed }) {
+export function EducationInfo({
+  onChange,
+  values,
+  toggleCollapsed,
+  deleteForm,
+}) {
   return (
     <div
       className="container section-form"
@@ -38,6 +43,15 @@ export function EducationInfo({ onChange, values, toggleCollapsed }) {
         value={values.location}
       />
       <div className="btn-container">
+        <button
+          className="btn"
+          onClick={() => {
+            toggleCollapsed;
+            deleteForm;
+          }}
+        >
+          Delete
+        </button>
         <button className="btn" onClick={toggleCollapsed}>
           Close
         </button>

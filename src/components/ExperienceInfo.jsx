@@ -1,5 +1,10 @@
 import { Input } from "./Input";
-export function ExperienceInfo({ onChange, values, toggleCollapsed }) {
+export function ExperienceInfo({
+  onChange,
+  values,
+  toggleCollapsed,
+  deleteForm,
+}) {
   return (
     <div
       className="container section-form"
@@ -44,6 +49,15 @@ export function ExperienceInfo({ onChange, values, toggleCollapsed }) {
         type="textarea"
       />
       <div className="btn-container">
+        <button
+          className="btn"
+          onClick={(e) => {
+            toggleCollapsed(e);
+            deleteForm(e);
+          }}
+        >
+          Delete
+        </button>
         <button className="btn" onClick={toggleCollapsed}>
           Close
         </button>

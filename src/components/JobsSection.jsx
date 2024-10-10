@@ -8,6 +8,8 @@ export function JobsSection({
   onChange,
   info,
   toggleCollapsed,
+  createForm,
+  deleteForm,
 }) {
   return (
     <div>
@@ -23,7 +25,11 @@ export function JobsSection({
           arrayName="jobs"
           toggleCollapsed={toggleCollapsed}
           InfoComponent={ExperienceInfo}
+          deleteForm={deleteForm}
         />
+        <button className="btn" onClick={createForm}>
+          +
+        </button>
       </div>
     </div>
   );

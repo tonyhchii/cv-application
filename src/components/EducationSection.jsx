@@ -9,6 +9,8 @@ export function EducationSection({
   onChange,
   info,
   toggleCollapsed,
+  createForm,
+  deleteForm,
 }) {
   return (
     <div>
@@ -20,7 +22,12 @@ export function EducationSection({
           arrayName="schools"
           toggleCollapsed={toggleCollapsed}
           InfoComponent={EducationInfo}
+          deleteForm={deleteForm}
         />
+
+        <button className="btn" onClick={createForm}>
+          +
+        </button>
       </div>
     </div>
   );

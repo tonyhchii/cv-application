@@ -3,12 +3,12 @@ import "../styles/section.css";
 
 export function GeneralInfo({ onChange, values }) {
   return (
-    <>
+    <div className="section">
       <button className="dropdown">
         <h2 className="info-header">Personal Info</h2>
       </button>
       <div className="section-content open">
-        <div className="section-form">
+        <div className="form-container">
           <Input
             label="Full Name"
             name="fullName"
@@ -35,6 +35,6 @@ export function GeneralInfo({ onChange, values }) {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

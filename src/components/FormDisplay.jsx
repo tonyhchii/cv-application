@@ -5,6 +5,7 @@ export function FormDisplay({
   toggleCollapsed,
   onChange,
   InfoComponent,
+  deleteForm,
 }) {
   return (
     <div className="form-container">
@@ -25,6 +26,7 @@ export function FormDisplay({
             values={obj}
             onChange={onChange}
             toggleCollapsed={toggleCollapsed}
+            deleteForm={deleteForm}
           />
         );
       })}

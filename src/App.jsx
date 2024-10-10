@@ -69,6 +69,58 @@ export function App() {
     });
   };
 
+  const createForm = (arrayName, object) => {
+    const section = info[arrayName];
+    section.push(object);
+    setInfo({
+      ...info,
+      [arrayName]: section,
+    });
+  };
+
+  const createEducationForm = () => {
+    const randomID = Math.random() + "";
+    const newSchool = {
+      id: randomID,
+      name: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      isCollapsed: true,
+    };
+
+    createForm("schools", newSchool);
+  };
+
+  const createJobForm = () => {
+    const randomID = Math.random() + "";
+    const newJob = {
+      id: randomID,
+      name: "",
+      title: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+      isCollapsed: true,
+    };
+
+    createForm("jobs", newJob);
+  };
+
+  const deleteForm = (e) => {
+    const sectionForm = e.target.closest(".section-form");
+    const { id } = sectionForm;
+    const { arrayName } = sectionForm.dataset;
+    const section = info[arrayName];
+    console.log(id);
+    setInfo({
+      ...info,
+      [arrayName]: section.filter((item) => item.id !== id),
+    });
+  };
+
   const handleChange = (e) => {
     const sectionForm = e.target.closest(".section-form");
     const { id } = sectionForm;
@@ -100,7 +152,6 @@ export function App() {
         if (form.id === id) {
           form[key] = !form[key];
         }
-        console.log(form.id, id);
 
         return form;
       }),
@@ -120,6 +171,8 @@ export function App() {
           info={info.schools}
           toggleCollapsed={toggleCollapsed}
           onChange={handleChange}
+          createForm={createEducationForm}
+          deleteForm={deleteForm}
         />
         <JobsSection
           isOpen={sectionOpen === "Professional Experience"}
@@ -127,6 +180,8 @@ export function App() {
           info={info.jobs}
           toggleCollapsed={toggleCollapsed}
           onChange={handleChange}
+          createForm={createJobForm}
+          deleteForm={deleteForm}
         />
       </div>
       <div className="display">
