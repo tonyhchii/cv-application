@@ -1,10 +1,10 @@
-import { Input } from "../Input";
+import { Input } from "./Input";
 import "../styles/section.css";
 
 export function GeneralInfo({ onChange, values }) {
   return (
     <>
-      <button className="section-form">
+      <button className="dropdown">
         <h2 className="info-header">Personal Info</h2>
       </button>
       <div className="section-content open">

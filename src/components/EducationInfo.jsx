@@ -1,4 +1,4 @@
-import { Input } from "../Input";
+import { Input } from "./Input";
 export function EducationInfo({ onChange, values, toggleCollapsed }) {
   return (
     <div
@@ -37,9 +37,11 @@ export function EducationInfo({ onChange, values, toggleCollapsed }) {
         onChange={onChange}
         value={values.location}
       />
-      <button className="btn" onClick={toggleCollapsed}>
-        Close
-      </button>
+      <div className="btn-container">
+        <button className="btn" onClick={toggleCollapsed}>
+          Close
+        </button>
+      </div>
     </div>
   );
 }
