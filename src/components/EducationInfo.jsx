@@ -45,9 +45,9 @@ export function EducationInfo({
       <div className="btn-container">
         <button
           className="btn"
-          onClick={() => {
-            toggleCollapsed;
-            deleteForm;
+          onClick={(e) => {
+            toggleCollapsed(e);
+            deleteForm(e);
           }}
         >
           Delete
